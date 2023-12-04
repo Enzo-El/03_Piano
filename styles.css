@@ -1,0 +1,91 @@
+/*--- This is the Styling for The PIANO ---*/
+html {
+    box-sizing: border-box;
+}
+  
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.general-text {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#piano {
+    background: hsl(240, 91%, 32%);
+    width: 992px;
+    height: 290px;
+    margin: 80px auto;
+    padding: 90px 20px 0 20px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.keys {
+    background-color: rgb(202, 122, 135);
+    width: 949px;
+    height: 180px;
+    padding-left: 2px;
+    overflow: hidden;
+}
+
+.key {
+    background-color: #fff;
+    position: relative;
+    width: 41px;
+    height: 175px;
+    margin: 2px;
+    float: left;
+    border-radius: 0 0 3px 3px;
+}
+
+.key.black-key::after {
+    background-color: #000;
+    content: "";
+    position: absolute;
+    left: -18px;
+    width: 32px;
+    height: 100px;
+    border-radius: 0 0 3px 3px;
+}
+/*--- END ----*/
+
+
+/*--- This is the Styling for The GRADIENTful TEXT ---*/
+.gradientful-text {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+/*--- END ----*/
+
+
+/*--- This is the Styling for Footnote ---*/
+.credits {
+    text-align: center;
+}
+/*--- END ----*/
+
+
+@media (max-width: 768px) {
+    #piano {
+        width: 358px;
+    }
+
+    .keys {
+        width: 318px;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 769px) {
+    #piano {
+        width: 675px;
+    }
+    
+    .keys {
+        width: 633px;
+    }
+}

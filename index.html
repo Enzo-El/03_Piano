@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>El Piano de Lorenzo</title>
+
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+
+    <body>
+
+        <h3 class="general-text">Try refreshing this page over and over and check the Piano Key(s) that does not change color, if meron</h3>
+        <p class="general-text"><strong>Babala:</strong> Ang rapid change ng color effects might cause epileptic seizure!</p>
+        <p class="general-text"><strong>PS:</strong> Pagpasensyahan nyo na po at medyo monochromatic po ang may gawa!</p>
+
+        <!--- The Colorful PIANO --->
+        <div id="piano">
+            <div class="keys">
+                <!--- Piano Keys with JavaScript Event Handlers --->
+                <div class="key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+                <div class="key black-key" onclick="changeColorOnClick(this)" onmouseover="changeColorOnMouseOver(this)" onmouseout="changeColorOnMouseOut(this)"></div>
+            </div>
+        </div>
+
+        <!--- This is the Internal JavaScript for "The Colorful PIANO" --->
+        <script>   
+            //  This function will change the color of the clicked Piano Key (onClick).
+            function changeColorOnClick(element) {
+                var randomColor = getRandomColor();
+                element.style.backgroundColor = randomColor;
+            }
+
+            //  This function will change the color of the Piano Keys when mouse is over (onMouseOver).
+            function changeColorOnMouseOver(element) {
+                element.style.backgroundColor = "lightblue";
+            }
+
+            //  This function will revert the color of the Piano Key to white when mouse out (onMouseOut).
+            function changeColorOnMouseOut(element) {
+                element.style.backgroundColor = "";
+            }
+
+            //  This function will change the color of the Piano Key when it is pressed (onKeyDown).
+            function changeColorOnKeyDown(event) {
+                // Converts to uppercase for Consistency.
+                var key = event.key.toUpperCase();
+                var element = document.getElementsByClassName(key);
+
+                if (element) {
+                    var randomColor = getRandomColor();
+                    element.style.backgroundColor = randomColor;
+                }
+            }
+
+            /** This function generates the random colors of the Piano Keys. 
+            **  Sorry po medyo nag-advance magbasa ng Math Functions i.e. "Math.floor", "Math.random", Assignment Operator, Increment, For Loop (Hehehe).
+            **  Yung color po can be represented by Hexadecimal in the format of "#123456".
+            **  The "letters" variable represents the 16 Hexadecimal Code (0-to-9 and A-F) which identifies a specific color.
+            **  The "color" variable represents the color-hexcode initiator, hashtag (#) symbol.
+            **  So, to generate random color po thru hexadecimal color code, I used for-loop so that it follows the 6-digit hexcode format above.
+            **  I used the addition assignment operator to assign the random color generated to "color" variable. 
+            **  I used the "Math.floor" math method to set the limit for the minimum of 6 characters combinations to match the loop increment and 6-digit hexcode format,
+            **  then multiply the same to base 16 to finally derive the color hexcode combination and store it on "color" variable for display/return **/
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+        
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }       
+                
+                return color;
+            }
+
+            //  This function will change the color of all keys on page load, reload/refresh (onLoad).
+            function changeColorOnLoad() {
+                var keys = document.querySelectorAll('.piano-key, .black-key');
+                    
+                keys.forEach(function (key) {
+                    var randomColor = getRandomColor();
+                    key.style.backgroundColor = randomColor;
+                });
+            }
+
+            //  Exploring the lessons, this will attach the Event listeners to the Piano Keys upon refresh of reload of the page.
+            window.onload = changeColorOnLoad;
+
+            document.addEventListener("keydown", changeColorOnKeyDown);
+        </script>
+        <!--- END of "The Colorful PIANO" --->
+
+
+        <!--- The GRADIENTful TEXT --->
+        <p class="gradientful-text" onclick="changeStyleOnClick(this)" onmouseover="changeStyleOnMouseOver(this)" onmouseout="restoreDefaultStyle(this)">
+            Click or/and Hover to see the M@g!k
+        </p>
+
+        <p class="gradientful-text" onclick="changeStyleOnClick(this)" onmouseover="changeStyleOnMouseOver(this)" onmouseout="restoreDefaultStyle(this)">
+            Click or/& Hover po ulit, Pleeeeease!
+        </p>
+
+        <p class="gradientful-text" onclick="changeStyleOnClick(this)" onmouseover="changeStyleOnMouseOver(this)" onmouseout="restoreDefaultStyle(this)">
+            Click or/at Hover po ulit, 1 more pa!
+        </p>
+
+        <p class="gradientful-text" onclick="alert('Its a prank po Maam, Sorry na po!!! Hehe')" onmouseover="changeStyleOnMouseOver(this)" onmouseout="restoreDefaultStyle(this)">
+            Hover po then "click here", 1 last na po!
+        </p>
+
+        <!--- This is the Internal JavaScript for "The GRADIENTful TEXT" --->
+        <script>
+            //  This function changes the linear gradient and color of the text upon click (onClick).
+            function changeStyleOnClick(element) {
+                var randomGradient = getRandomLinearGradient();
+                var randomColor = getRandomColor();
+
+                element.style.background = randomGradient;
+                element.style.color = randomColor;
+            }
+
+            //  This function changes the linear gradient and color of the text upon mouseover (onMouseOver).
+            function changeStyleOnMouseOver(element) {
+                element.style.background = getRandomLinearGradient();
+                element.style.color = getRandomColor();
+            }
+            
+            //  This function restores the default styling use on the external CSS upon mouseout (onMouseOut).
+            function restoreDefaultStyle(element) {
+                element.style.background = '';
+                element.style.color = '';
+            }
+            
+            //  This function generates the random color related to the text, same as above.
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+        
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                
+                return color;
+            }
+
+            /** This function generates the random Linear Gradient (my Favorite CSS Background Value/Property)
+            **  There is another format of linear-gradient in CSS for color transition ~ "linear-gradient(angle in degrees, first color, second color, ...)"
+            **  The "angle" variable represents the measure of angle in degrees that will be randomly generated using "Math.random" method.
+            **  The "color1" variable represents the first color of the linear gradient that will be randomly generated using "getRandomColor" function above. 
+            **  The "color2" variable represents the second color of the linear gradient that will be randomly generated using "getRandomColor" function above. 
+            **  The return value will be the combined random values generated following the above format of linear-gradient color property. **/
+            function getRandomLinearGradient() {
+                var angle = Math.floor(Math.random() * 360);
+                var color1 = getRandomColor();
+                var color2 = getRandomColor();
+                
+                return 'linear-gradient(' + angle + 'deg, ' + color1 + ', ' + color2 + ')';
+            }
+        </script>
+        <!--- END of The GRADIENTful TEXT --->
+
+
+        <footer class="credits">
+            <p><strong>Author:</strong> Lorenzo Laurel Reyes</p>
+            <p><strong>KodeGo Batch:</strong> WD92P</p>
+            <p><strong>Instructor:</strong> Ms. Jamie Delina</p>
+        </footer>
+    </body>
+</html>
